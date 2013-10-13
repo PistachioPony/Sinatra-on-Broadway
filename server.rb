@@ -28,12 +28,17 @@ end
 # Form to create new show
 
 get "/shows/new" do
+
+  erb :'shows/new'
 end
 
 # Create action - new show - redirects to that
 # show
 
 post "/shows" do
+  new_show = Show.new(params[:new_show])
+  new_show.save
+  redirect '/shows'
 end
 
 # Individual show page
@@ -41,8 +46,9 @@ end
 # and form to create new songs `/shows/:id/songs/new`
 
 get "/shows/:id" do
-  @shows = Show.find(params[:show_id])
-  erb :'shows/index'
+  @shows = Show.find(params[:id])
+  
+  erb :'shows/show'
 end
 
 # Form to create new songs

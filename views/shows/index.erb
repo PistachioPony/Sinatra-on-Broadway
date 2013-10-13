@@ -1,9 +1,11 @@
 
   <% @shows.each do |show| %>
     <section>
-    <h3>Title: <a href="<%= show.title %>"><%= show.title %></a></h3>
+    <h3>Title: <%= show.title %></a></h3>
     <h3>Year: <%= show.year %></h3>
     <h3>Composer: <%= show.composer %></h3>
     <a href="<%="/shows/#{show.id}"%>"><img src='<%= show.img_url %>'></a>
     </section>
   <% end %>
+
+  
