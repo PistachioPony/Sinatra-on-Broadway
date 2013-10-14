@@ -22,6 +22,7 @@ end
 
 get "/shows" do
   @shows = Show.all
+  @id = params[:id]
   erb :'shows/index'
 end
 
@@ -36,8 +37,7 @@ end
 # show
 
 post "/shows" do
-  new_show = Show.new(params[:new_show])
-  new_show.save
+  Show.create(title: params[:title], year: params[:year], composer: params[:composer], img_url: params[:img_url])
   redirect '/shows'
 end
 
@@ -46,30 +46,46 @@ end
 # and form to create new songs `/shows/:id/songs/new`
 
 get "/shows/:id" do
-  @shows = Show.find(params[:id])
-  
+  show = Show.find_by(id: params[:id]) 
+  @title = show.title 
+  @year = show.year 
+  @composer = show.composer
+  @img_url = show.img_url 
   erb :'shows/show'
 end
 
 # Form to create new songs
 
 get "/shows/:id/songs/new" do
+  @id = params[:id]
+  erb :'songs/new'
 end
 
 # Create action - new songs for a show - redirects
 # to that song
 
 post "/shows/:id/songs" do
+  show = Show.find_by(id: params[:id]) 
+  @id = params[:id]
+  Song.create(title: params[:title], embed_url: params[:embed_url], show_id: @id)
+  
+  redirect "/shows/#{show.id}/songs"
 end
 
 # Lists all songs from the show
 
 get "/shows/:id/songs" do
+  @songs = Song.all
+  @songster = Song.where(show_id: params[:id])
+  erb :'songs/index'
 end
 
 # Shows just one song from the show
 
 get "/shows/:show_id/songs/:song_id" do
+    @song_title = single_song.title 
+    @song_embed = single_song.embed_url 
+  erb :'songs/show'
 end
 
 

@@ -3,8 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Broadway!</title>
+  <link rel="stylesheet" href="/style.css">
+  </head>
 </head>
 <body>
-  <%= yield %>
+    <nav>
+      <ul>
+        <li><a href="/shows">List of shows</a></li> 
+        <li><a href="/shows/:id/songs">List of songs</a></li>
+        <li><a href="/shows/new">Add your favorite show</a></li>
+        <li><a href="/shows/:id/songs/new">Add your favorite show tune</a></li>
+      </ul> 
+    </nav> 
+<%= yield %>
 </body>
 </html>

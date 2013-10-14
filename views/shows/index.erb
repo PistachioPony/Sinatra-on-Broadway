@@ -1,11 +1,10 @@
+  <h1> This is a list of all shows! </h1> 
 
-  <% @shows.each do |show| %>
-    <section>
-    <h3>Title: <%= show.title %></a></h3>
-    <h3>Year: <%= show.year %></h3>
-    <h3>Composer: <%= show.composer %></h3>
-    <a href="<%="/shows/#{show.id}"%>"><img src='<%= show.img_url %>'></a>
-    </section>
-  <% end %>
+<% @shows.reverse.each do |show| %> 
+<h2> <a href="/shows/<%= show.id %>"><%= show.title %></a></h2> 
+<img src="<%=show.img_url %>">
+<h4><%=show.year%></h4>
+<p><%=show.composer%></p>
+<% end %> 
 
   

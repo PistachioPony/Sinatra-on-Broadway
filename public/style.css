@@ -1,0 +1,46 @@
+body {
+  background: #68838B;
+}
+
+.intro{
+  text-align: center;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.clear {
+  clear: both;
+}
+
+nav {
+  border-bottom: 1px solid black;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+nav li {
+  display: inline-block;
+  list-style: none;
+  padding: 20px;
+}
+
+.wrapper {
+  margin: 20px auto;
+  text-align: center;
+}
+
+section {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+img {
+  border-radius: 2%;
+  border: 5px solid #D1EEEE;
+}
+
+label {
+  text-align: left;
+}

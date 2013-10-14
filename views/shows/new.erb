@@ -1,20 +1,8 @@
 <h1>Add Your Favorite Show!</h1>
-<form action="/shows" method="post">
-  <div>
-    <label>Title:</label>
-    <input value='<%= @new_show['title'] if @new_show %>' type='text' name='new_show[title]' />
-  </div>
-  <div>
-    <label>Year:</label>
-    <input value='<%= @new_show['year'] if @new_show %>' type='text' name='new_show[year]'/>
-  </div>
-  <div>
-    <label>Composer:</label>
-    <input value='<%= @new_show['composer'] if @new_show %>' type='text' name='new_show[composer]'/>
-  </div>
-  <div>
-    <label>Img URL:</label>
-    <input value='<%= @new_show['img_url'] if @new_show %>' type='text' name='new_show[img_url]'/>
-  </div>
-  <button>Sing it baby!</button>
+<form action='/shows' method='POST'> 
+    <p><input type="text" placeholder="Title" name="title" /></p>
+    <p><input type="text" placeholder="Year" name="year" /></p>
+    <p><input type="text" placeholder="Composer" name="composer" /></p>
+    <p><input type="text" placeholder="Image url" name="img_url" /></p>
+    <button>Sock it to me!</button>
 </form>
